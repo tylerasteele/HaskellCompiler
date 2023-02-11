@@ -2,19 +2,19 @@
 
 This repository contains a Haskell compiler for a simple programming language. The source language consists of variable assignment, conditional if/else blocks, while loops, Seqn[Prog] to create a sequential list of instructions, and an App keyword for multiplication, division, addition, and subtraction. 
 
-data Prog
-= Assign String Expr
-| If Expr Prog Prog
-| While Expr Prog
-| Seqn [ Prog ]
-  deriving (Show ,Eq)
+data Prog<br>
+= Assign String Expr<br>
+| If Expr Prog Prog<br>
+| While Expr Prog<br>
+| Seqn [ Prog ]<br>
+  deriving (Show ,Eq)<br>
 
-data Expr
-= Val Int
-| Var String
-| App Op Expr Expr
-deriving (Show , Eq)
-data Op = Add | Sub | Mul | Div deriving (Show , Eq
+data Expr<br>
+= Val Int<br>
+| Var String<br>
+| App Op Expr Expr<br>
+deriving (Show , Eq)<br>
+data Op = Add | Sub | Mul | Div deriving (Show , Eq)
 
 This simple program calculates the sum of the integers five through ten.
 
