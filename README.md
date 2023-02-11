@@ -79,7 +79,7 @@ Using our simple program from above, we compile into these instructions.
 The memory storage is type Mem = [(String, Int)], so when this program terminates we should have [("result", 45), ("i", 10)]
 
 
-We run a program of the initial source language through the compiler function. This outputs program in instructions. Now, the simulated virtual machine will take the instructions and perform the computations. 
+So, to summarize, we run a program of the initial source language through the compiler function. This outputs the program in instructions. Now, the simulated virtual machine will take the instructions and perform the computations. 
 
 <pre>
 data MachST = MachST { stack :: Stack , mem :: Mem , counter :: Int }
@@ -105,13 +105,9 @@ exec ’ :: Code -> MachST -> ( Mem , MachST )
 exec :: Code -> Mem
 </pre>
 
-In the code, we see how much easier the state monad makes our lives. Running a program through our monadic virtual machine looks like exec (comp (programName inputValue))
+Looking at the code, we see how much easier the state monad makes our lives. Here is an example using the monadic exec function:
 
-
-
-
-
-
-
-
+<pre>
+exec (comp (programName inputValue))
+</pre>
 
