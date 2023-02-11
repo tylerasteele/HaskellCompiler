@@ -19,18 +19,17 @@ data Op = Add | Sub | Mul | Div deriving (Show , Eq)
 This simple program calculates the sum of the integers five through ten.
 
 <pre>
-Seqn<br>
-   [ Assign " result " ( Val 5) ,<br>
-   Assign "i" ( Val 5) ,<br>
-   While<br>
-     ( App Sub ( Var "i") ( Val 10) )<br>
-     ( Seqn<br>
-      [ Assign "i" ( App Add ( Var "i") ( Val 1) ) ,<br>
-        Assign " result " ( App Add ( Var " result ") ( Var "i") )<br>
-      ]<br>
-    )<br>
-]<br>
-
+Seqn
+   [ Assign " result " ( Val 5),
+   Assign "i" ( Val 5),
+   While
+     ( App Sub ( Var "i") ( Val 10) )
+     ( Seqn
+      [ Assign "i" ( App Add ( Var "i") ( Val 1) ),
+        Assign " result " ( App Add ( Var " result ") ( Var "i") )
+      ]
+    )
+]
 </pre>
 
 
