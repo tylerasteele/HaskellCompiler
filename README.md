@@ -73,7 +73,8 @@ Using our simple program from above, we compile into these instructions.
   LABEL 1
 ]
 
-
+[ PUSH 5, POP "result,
+  PUSH 5, POP "i"
 
 
 
