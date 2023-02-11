@@ -18,17 +18,17 @@ data Op = Add | Sub | Mul | Div deriving (Show , Eq)
 
 This simple program calculates the sum of the integers five through ten.
 
-Seqn
-  [ Assign " result " ( Val 5) ,
-  Assign "i" ( Val 5) ,
-  While
-    ( App Sub ( Var "i") ( Val 10) )
-    ( Seqn
-      [ Assign "i" ( App Add ( Var "i") ( Val 1) ) ,
-        Assign " result " ( App Add ( Var " result ") ( Var "i") )
-      ]
-    )
-]
+Seqn<br>
+  [ Assign " result " ( Val 5) ,<br>
+  Assign "i" ( Val 5) ,<br>
+  While<br>
+    ( App Sub ( Var "i") ( Val 10) )<br>
+    ( Seqn<br>
+      [ Assign "i" ( App Add ( Var "i") ( Val 1) ) ,<br>
+        Assign " result " ( App Add ( Var " result ") ( Var "i") )<br>
+      ]<br>
+    )<br>
+]<br>
 
 
 
@@ -37,20 +37,20 @@ The compiler takes programs as input converting it to instructions. Our instruct
 
 
 
-type Stack = [ Int ]
-type Mem = [( String , Int ) ]
-type Code = [ Inst ]
-data Inst
-= PUSH Int
-| PUSHV String
+type Stack = [ Int ]<br>
+type Mem = [( String , Int ) ]<br>
+type Code = [ Inst ]<br>
+data Inst<br>
+= PUSH Int<br>
+| PUSHV String<br>
 
-| POP String
-| DO Op
-| JUMP Label
-| JUMPZ Label
-| LABEL Label
-deriving (Show , Eq)
-type Label = Int
+| POP String<br>
+| DO Op<br>
+| JUMP Label<br>
+| JUMPZ Label<br>
+| LABEL Label<br>
+deriving (Show , Eq)<br>
+type Label = Int<br>
 
 Using our simple program from above, we compile into these instructions.
 
@@ -58,19 +58,19 @@ Using our simple program from above, we compile into these instructions.
   PUSH 5 , POP "i",<br>
   LABEL 0 ,<br>
   PUSHV "i",<br>
-  PUSH 10 ,\n
-  DO Sub ,\n
-  JUMPZ 1 ,\n
-  PUSHV "i",\n
-  PUSH 1 ,
-  DO Add ,
-  POP "i",
-  PUSHV " result ",
-  PUSHV "i",
-  DO Add ,
-  POP " result ",
-  JUMP 0 ,
-  LABEL 1
+  PUSH 10 ,<br>
+  DO Sub ,<br>
+  JUMPZ 1 ,<br>
+  PUSHV "i",<br>
+  PUSH 1 ,<br>
+  DO Add ,<br>
+  POP "i",<br>
+  PUSHV " result ",<br>
+  PUSHV "i",<br>
+  DO Add ,<br>
+  POP " result ",<br>
+  JUMP 0 ,<br>
+  LABEL 1<br>
 ]
 
 [ PUSH 5, POP "result,
