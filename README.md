@@ -54,10 +54,10 @@ type Label = Int
 
 Using our simple program from above, we compile into these instructions.
 
-[ PUSH 5 , POP " result ",\n
-  PUSH 5 , POP "i",\n
-  LABEL 0 ,\n
-  PUSHV "i",\n
+[ PUSH 5 , POP " result ",<br>
+  PUSH 5 , POP "i",<br>
+  LABEL 0 ,<br>
+  PUSHV "i",<br>
   PUSH 10 ,\n
   DO Sub ,\n
   JUMPZ 1 ,\n
