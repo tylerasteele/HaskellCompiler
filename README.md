@@ -92,7 +92,6 @@ mem :: MachST -> Mem
 mem ( MachST _ m _ ) = m
 counter :: MachST -> Int
 counter ( MachST _ _ c ) = c
-
 </pre>
 
 MachST, or machine state, contains the state as the instructions execute. An initial state would have nothing on the stack, no memory, and a program counter at 0. 
@@ -101,7 +100,6 @@ This project contains two exec functions. One is passes the state manually and t
 
 <pre>
 exec ’ :: Code -> MachST -> ( Mem , MachST )
-
 exec :: Code -> Mem
 </pre>
 
