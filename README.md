@@ -76,6 +76,38 @@ Using our simple program from above, we compile into these instructions.
 ]
 </pre>
 
+The memory storage is type Mem = [(String, Int)], so when this program terminates we should have [("result", 45), ("i", 10)]
+
+
+We run a program of the initial source language through the compiler function. This outputs program in instructions. Now, the simulated virtual machine will take the instructions and perform the computations. 
+
+<pre>
+data MachST = MachST { stack :: Stack , mem :: Mem , counter :: Int }
+  deriving ( Show )
+
+data MachST = MachST Stack Mem Int deriving ( Show )
+stack :: MachST -> Stack
+stack ( MachST s _ _ ) = s
+mem :: MachST -> Mem
+mem ( MachST _ m _ ) = m
+counter :: MachST -> Int
+counter ( MachST _ _ c ) = c
+
+</pre>
+
+MachST, or machine state, contains the state as the instructions execute. An initial state would have nothing on the stack, no memory, and a program counter at 0. 
+
+This project contains two exec functions. One is passes the state manually and the other in monadic. 
+
+<pre>
+exec ’ :: Code -> MachST -> ( Mem , MachST )
+
+exec :: Code -> Mem
+</pre>
+
+In the code, we see how much easier the state monad makes our lives. Running a program through our monadic virtual machine looks like exec (comp (programName inputValue))
+
+
 
 
 
