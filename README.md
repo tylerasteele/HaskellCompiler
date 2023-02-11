@@ -8,27 +8,27 @@ data Prog
 | If Expr Prog Prog
 | While Expr Prog
 | Seqn [ Prog ]
-  deriving (Show ,Eq)
+  deriving (Show, Eq)
 
 data Expr
 = Val Int
 | Var String
 | App Op Expr Expr
-deriving (Show , Eq)
-data Op = Add | Sub | Mul | Div deriving (Show , Eq)
+deriving (Show, Eq)
+data Op = Add | Sub | Mul | Div deriving (Show, Eq)
 </pre>
 
 This simple program calculates the sum of the integers five through ten.
 
 <pre>
 Seqn
-   [ Assign " result " ( Val 5),
+   [ Assign "result" ( Val 5),
    Assign "i" ( Val 5),
    While
      ( App Sub ( Var "i") ( Val 10) )
      ( Seqn
       [ Assign "i" ( App Add ( Var "i") ( Val 1) ),
-        Assign " result " ( App Add ( Var " result ") ( Var "i") )
+        Assign "result" ( App Add ( Var "result") ( Var "i") )
       ]
     )
 ]
@@ -74,7 +74,6 @@ Using our simple program from above, we compile into these instructions.
   JUMP 0,
   LABEL 1
 ]
-
 </pre>
 
 
